@@ -1,0 +1,10 @@
+env
+.env
+venv
+.venv
+output/
+dist/
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
