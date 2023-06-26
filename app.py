@@ -7,6 +7,10 @@ import subprocess
 import sys
 import os
 
+script_dir = os.path.dirname(os.path.realpath(__file__))
+window_icon = os.path.join(script_dir, 'static', 'python-256x256.png')
+app_icon = os.path.join(script_dir, 'static', 'python.ico')
+
 button_styles = "padding: 10px 20px; font-size: 16px;"
 text_styles = " font-size: 12px; color: #AAAAAA;"
 pixel_input_styles = "font-size: 16px;"
@@ -16,7 +20,7 @@ class ImagePreviewer(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Resize Images')
-        self.setWindowIcon(QIcon('static/python-256x256.png'))
+        self.setWindowIcon(QIcon(window_icon))
         self.setGeometry(100, 100, 800, 600)
 
         self.layout = QVBoxLayout()
@@ -167,6 +171,7 @@ class ImagePreviewer(QWidget):
 
 def main():
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon(app_icon))
     window = ImagePreviewer()
     window.show()
     sys.exit(app.exec())
